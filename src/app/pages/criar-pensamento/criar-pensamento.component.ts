@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Pensamento } from 'src/app/components/pensamento/pensamento';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -10,29 +12,29 @@ export class CriarPensamentoComponent implements OnInit {
 
   itemForm!: FormGroup;
 
-  pensamento = {
-    id: '1',
+  pensamento: Pensamento = {
+    id: 1,
     conteudo: 'Aprendendo Angular',
     autoria: 'Dev',
     modelo: 'modelo1'
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.itemForm = new FormGroup({
-      nome: new FormControl('', Validators.required),
-      qt: new FormControl(0, Validators.required),
-      md: new FormControl('un', Validators.required)
+      conteudo: new FormControl('', Validators.required),
+      autoria: new FormControl('', Validators.required),
+      modelo: new FormControl('modelo1', Validators.required)
     });
   }
 
   criarPensamento() {
-    console.log('Criado');
+    this.router.navigateByUrl('/listar-pensamento');
   }
 
   cancelarPensamento() {
-    console.log('Cancelado')
+    this.router.navigateByUrl('/listar-pensamento');
   }
 
 }
