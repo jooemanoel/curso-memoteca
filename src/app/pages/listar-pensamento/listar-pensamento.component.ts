@@ -1,27 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pensamento } from 'src/app/components/pensamento/pensamento';
+import { PensamentoService } from 'src/app/services/pensamento.service';
 
 @Component({
   selector: 'app-listar-pensamento',
   templateUrl: './listar-pensamento.component.html',
   styleUrls: ['./listar-pensamento.component.css']
 })
-export class ListarPensamentoComponent {
-  listaPensamentos: Pensamento[] = [
-    {
-      conteudo: 'rtu',
-      autoria: 'ghk',
-      modelo: 'modelo3'
-    },
-    {
-      conteudo: 'qwer',
-      autoria: 'asdf',
-      modelo: 'modelo2'
-    },
-    {
-      conteudo: '1234',
-      autoria: '5678',
-      modelo: 'modelo1'
-    }
-  ];
+export class ListarPensamentoComponent implements OnInit {
+
+  listaPensamentos: Pensamento[] = [];
+  paginaAtual: number = 1;
+
+  constructor(private service: PensamentoService) { }
+
+  ngOnInit(): void {
+    this.service.listarPagina(this.paginaAtual).subscribe((listaPensamentos) => {
+      this.listaPensamentos = listaPensamentos;
+    });
+  }
 }

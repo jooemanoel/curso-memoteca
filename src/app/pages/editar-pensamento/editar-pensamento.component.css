@@ -1,21 +1,17 @@
 .acoes {
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-content: center;
 }
 
 .botao {
     margin: 5px;
-    margin-top: 70px;
-    width: 200px;
 }
 
-.criar-pensamentos {
+.editar-pensamentos {
     padding: 2rem 0;
 }
 
-.criar-pensamentos form {
+.editar-pensamentos form {
     background: #C4EDFF;
 
     border: none;
@@ -27,13 +23,13 @@
     padding: 2rem;
 }
 
-.criar-pensamentos form label {
+.editar-pensamentos form label {
     color: #154580;
     font-weight: bold;
     margin: 0 0 1rem;
 }
 
-.criar-pensamentos form .input {
+.editar-pensamentos form .input {
     border: none;
     height: 40px;
     padding: 1rem 2rem;
@@ -42,7 +38,7 @@
 }
 
 
-.criar-pensamentos form .textarea {
+.editar-pensamentos form .textarea {
     border: none;
     padding: 1rem 2rem;
     border-radius: 20px;
@@ -53,7 +49,6 @@
     display: flex;
     gap: 2.5rem;
     flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 .modelos {
@@ -117,7 +112,6 @@ input[type='radio'] {
 span {
     transition: 0.5s ease;
     color: #154580;
-    display: none;
 }
 
 .custom-radio span {
@@ -128,32 +122,10 @@ span {
     border-radius: 50%;
 }
 
-.input-radio {
-    display: none;
-}
-
 input[type='radio']:checked+.custom-radio {
     border-color: #154580;
 }
 
 input[type='radio']:checked+.custom-radio span {
     background: #154580;
-}
-
-input[type='radio']:checked~.modelo {
-    box-shadow: 0 0 3rem;
-}
-
-.mensagem__erro {
-    font-size: 12px;
-    margin-left: 5px;
-    color: red;
-    margin-top: -25px;
-    margin-bottom: 20px;
-}
-
-.botao__desabilitado {
-    margin: 5px;
-    margin-top: 70px;
-    width: 200px;
 }
