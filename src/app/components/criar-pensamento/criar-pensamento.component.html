@@ -2,20 +2,21 @@
     <header class="header">
         <h2>Adicione um <br> pensamento novo:</h2>
     </header>
-    <form (formGroup)="itemForm" (ngSubmit)="criarPensamento()">
+    <form (formGroup)="itemForm">
         <label for="pensamento">Pensamento</label>
         <input class="input" type="textarea" id="pensamento" name="pensamento" placeholder="Digite o pensamento"
-            [value]="pensamento.conteudo">
+            [(ngModel)]="pensamento.conteudo">
         <label for="autoria">Autoria</label>
         <input class="input" type="textarea" id="autoria" name="autoria" placeholder="Digite a autoria"
-            [value]="pensamento.autoria">
+            [(ngModel)]="pensamento.autoria">
 
         <label for="modelo">Selecione o modelo do card</label>
 
         <div class="container-radio">
             <div class="radio-modelo">
                 <label for="modelo1">
-                    <input class="input-radio" type="radio" id="modelo1" value="modelo1" name="modelo-card">
+                    <input class="input-radio" type="radio" id="modelo1" value="modelo1" name="modelo-card"
+                        [(ngModel)]="pensamento.modelo">
                     <div class="custom-radio">
                         <span></span>
                     </div>
@@ -28,7 +29,8 @@
             </div>
             <div class="radio-modelo">
                 <label for="modelo2">
-                    <input class="input-radio" type="radio" id="modelo2" value="modelo2" name="modelo-card">
+                    <input class="input-radio" type="radio" id="modelo2" value="modelo2" name="modelo-card"
+                        [(ngModel)]="pensamento.modelo">
                     <div class="custom-radio">
                         <span></span>
                     </div>
@@ -41,7 +43,8 @@
             </div>
             <div class="radio-modelo">
                 <label for="modelo3">
-                    <input class="input-radio" type="radio" id="modelo3" value="modelo3" name="modelo-card">
+                    <input class="input-radio" type="radio" id="modelo3" value="modelo3" name="modelo-card"
+                        [(ngModel)]="pensamento.modelo">
                     <div class="custom-radio">
                         <span></span>
                     </div>
@@ -54,8 +57,8 @@
             </div>
         </div>
         <div class="acoes">
-            <button class="botao" type="submit">Salvar</button>
-            <button class="botao" type="button">Cancelar</button>
+            <button (click)="criarPensamento()" class="botao" type="button">Salvar</button>
+            <button (click)="cancelarPensamento()" class="botao" type="button">Cancelar</button>
         </div>
     </form>
 </section>
