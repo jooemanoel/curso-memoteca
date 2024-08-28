@@ -36,4 +36,8 @@ export class ListarPensamentoComponent implements OnInit {
       this.listaPensamentos = listaPensamentos;
     });
   }
+
+  listarFavoritos() {
+
+  }
 }
