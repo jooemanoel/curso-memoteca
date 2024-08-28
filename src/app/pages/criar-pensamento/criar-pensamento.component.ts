@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pensamento } from 'src/app/components/pensamento/pensamento';
+import { Pensamento } from 'src/app/shared/pensamento';
 import { PensamentoService } from 'src/app/services/pensamento.service';
 
 @Component({
@@ -17,9 +17,10 @@ export class CriarPensamentoComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = new FormGroup({
-      conteudo: new FormControl('', Validators.compose([Validators.required, Validators.pattern(/(.|s)*\S(.|\s)*/)])),
+      conteudo: new FormControl('', { validators: [Validators.required, Validators.pattern(/(.|s)*\S(.|\s)*/)] }),
       autoria: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
-      modelo: new FormControl('modelo1', Validators.required)
+      modelo: new FormControl('modelo1', Validators.required),
+      favorito: new FormControl(false)
     });
   }
 

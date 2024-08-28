@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pensamento } from 'src/app/components/pensamento/pensamento';
+import { Pensamento } from 'src/app/shared/pensamento';
 import { PensamentoService } from 'src/app/services/pensamento.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class EditarPensamentoComponent {
   pensamento: Pensamento = {
     conteudo: '',
     autoria: '',
-    modelo: ''
+    modelo: '',
+    favorito: false
   }
 
   constructor(private service: PensamentoService, private router: Router, private route: ActivatedRoute) { }
