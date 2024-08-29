@@ -10,6 +10,7 @@ import { PensamentoService } from 'src/app/services/pensamento.service';
 export class PensamentoComponent implements OnInit {
 
   @Input() pensamento: Pensamento = { conteudo: '', autoria: '', modelo: 'modelo1', favorito: false };
+  @Input() listaFavoritos: Pensamento[] = [];
 
   constructor(private service: PensamentoService) { }
 
@@ -30,6 +31,8 @@ export class PensamentoComponent implements OnInit {
 
   alterarFavorito() {
     this.pensamento.favorito = !this.pensamento.favorito;
-    this.service.editar(this.pensamento).subscribe();
+    this.service.editar(this.pensamento).subscribe(() => {
+      this.listaFavoritos.splice(this.listaFavoritos.indexOf(this.pensamento), 1);
+    });
   }
 }
