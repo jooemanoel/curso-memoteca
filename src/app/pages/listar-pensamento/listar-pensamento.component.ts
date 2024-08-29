@@ -61,7 +61,10 @@ export class ListarPensamentoComponent implements OnInit {
   }
 
   listarMural() {
-    this.abaFavoritos = false;
-    this.inicializarPensamentos();
+    // this.abaFavoritos = false;
+    // this.inicializarPensamentos();
+    this.router.navigateByUrl('/criar-pensamento', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/listar-pensamento']);
+    });
   }
 }
